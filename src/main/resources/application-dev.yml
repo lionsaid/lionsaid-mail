@@ -1,0 +1,52 @@
+spring:
+  mail:
+    #    password: "Lionsaid0518"
+    #    username: "sunwei@szs1206.wecom.work"
+    #    host: "smtp.exmail.qq.com"
+    password: "4hGvdDEGanqq@C!"
+    username: "lionsaid@aliyun.com"
+    host: "smtp.aliyun.com"
+    port: 465
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+          starttls:
+            enable: true
+  messages:
+    basename: "i18n/messages"
+    encoding: "UTF-8"
+    fallback-to-system-locale: false
+  devtools:
+    add-properties: false
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
+logging:
+  level:
+    com.lionsaid: error
+    org.springframework.web: error
+    com.azure.core.amqp.implementation: error
+  pattern:
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n'
+  file:
+    name: logs/logback.log
+  logback:
+    rollingpolicy:
+      ## 最多历史保存天数 100天
+      max-history: 10
+      ## 每个文件最大10MB 超过即生成压缩包
+      max-file-size: 10MB
+      ## 生成的压缩包名称
+      file-name-pattern: logs/logback-%d{yyyy-MM-dd}.%i.log.zip
+
+
+
+
+
+

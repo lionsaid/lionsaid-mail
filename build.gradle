@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+    id "java-library"
+    id 'org.springframework.boot' version '3.1.2'
+    id 'io.spring.dependency-management' version "1.1.0"
+    id "com.google.cloud.tools.jib" version '3.3.1'
+}
+
+group = 'com.lionsaid'
+version = 'v120230824'
+
+java {
+    sourceCompatibility = '17'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.yaml:snakeyaml:2.1")
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
+    implementation 'com.alibaba:fastjson:2.0.20'
+    implementation 'com.google.guava:guava:32.1.2-jre'
+    implementation 'org.bouncycastle:bcprov-jdk18on:1.74'
+    implementation 'commons-codec:commons-codec:1.15'
+    testImplementation 'org.projectlombok:lombok:1.18.26'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'mysql:mysql-connector-java:8.0.28'
+    implementation 'org.postgresql:postgresql'
+
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation 'com.googlecode.log4jdbc:log4jdbc:1.2'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation 'jakarta.json:jakarta.json-api:2.1.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.11.0'
+    implementation "io.minio:minio:8.5.5"
+    implementation 'com.tencentcloudapi:tencentcloud-sdk-java:3.1.683'
+    implementation group: 'com.github.houbb', name: 'opencc4j', version: '1.8.1'
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
